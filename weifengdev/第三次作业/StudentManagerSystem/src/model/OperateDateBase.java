@@ -81,14 +81,6 @@ public class OperateDateBase {
         }
     }
 
-//    private String getvalus(Student student){
-//        String values =  "'" + student.getMajor() + "','" + student.getClas() + "','"
-//                + student.getName() + "','" + student.getSex() + "','"
-//                + student.getNumber() + "','" + student.getChinese() + "','"
-//                + student.getMaths() + "','" + student.getEnglish() + "'";
-//        return values;
-//    }
-
     public int deleteStudent(String number){
         int result = 0;
         doConn();
@@ -218,10 +210,4 @@ public class OperateDateBase {
         return result;
     }
 
-    public static void main(String[] args){
-//        OperateDateBase opb = new OperateDateBase();
-//        Student student = new Student("888","软工","软工","软工","计算机",4,5,6);
-//        //System.out.println(opb.queryByRange("Chinese", 50,5));
-//        System.out.println(opb.queryStuSub("888", "chinese"));
-    }
 }
