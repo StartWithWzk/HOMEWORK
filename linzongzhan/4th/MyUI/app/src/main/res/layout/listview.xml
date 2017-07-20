@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="60dp"
+        android:layout_height="100dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="15dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="20"
+            android:gravity="center_horizontal"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="5月"
+            android:gravity="center_horizontal"
+            android:textSize="13sp"/>
+        
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="60dp"
+        android:layout_height="100dp"
+        android:src="@drawable/snipaste_20170720_224226"/>
+
+    <TextView
+        android:layout_width="10dp"
+        android:layout_height="100dp" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+            <TextView
+                android:layout_width="125dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:text="离散数学及其应用\n(第6版)"/>
+
+            <TextView
+                android:layout_width="30dp"
+                android:layout_height="15dp"
+                android:text="可借"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:textColor="#ffffff"
+                android:layout_marginTop="15dp"
+                android:background="#69cfaa"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="傅彦、 顾小丰"/>
+
+    </LinearLayout>
+
+</LinearLayout>

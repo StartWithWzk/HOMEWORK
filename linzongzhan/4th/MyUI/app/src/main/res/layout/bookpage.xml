@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <LinearLayout
+                android:layout_width="40dp"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/vector_drawable_back"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="书籍详情"
+                android:gravity="center"
+                android:textSize="24dp"/>
+
+            <LinearLayout
+                android:layout_width="40dp"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/bookage_homepage"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/vector_drawable_message"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/book"/>
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="21dp"
+            android:gravity="center_horizontal"
+            android:text="白夜行"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="4dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="3dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="18dp"
+            android:text="【日】 东野圭吾"
+            android:textSize="15sp"
+            android:gravity="center_horizontal"
+            android:textColor="#75b4df"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="18dp">
+
+            <TextView
+                android:layout_width="10dp"
+                android:layout_height="18dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="18dp"
+                android:text="书籍简介"
+                android:textSize="18sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="36dp">
+
+            <TextView
+                android:layout_width="10dp"
+                android:layout_height="36dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:text="14年前卷入杀人案件的一对彼此相爱男女，因摆脱一名咬住案件紧紧不放的警察的纠缠迫不得已形同陌路。"
+                android:textSize="14sp"/>
+
+            <LinearLayout
+                android:layout_width="16dp"
+                android:layout_height="36dp">
+
+                <Button
+                    android:layout_width="16dp"
+                    android:layout_height="15dp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="2dp"
+                    android:background="@drawable/vector_drawable_more"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="10dp"
+                android:layout_height="36dp" />
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                android:layout_width="10dp"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
+                android:text="9成新"
+                android:textSize="11sp"
+                android:gravity="center_vertical"
+                android:background="#69cfaa"
+                android:textColor="#ffffff"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:layout_width="14dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/vector_drawable_shoppingcar1" />
+
+            <TextView
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
+                android:text="10.00"
+                android:textSize="11sp"
+                android:gravity="center_vertical"
+                android:textColor="#69cfaa"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:layout_width="14dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/vector_drawable_bookshelf"/>
+
+            <TextView
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
+                android:text="可借"
+                android:textSize="11sp"
+                android:gravity="center_vertical"
+                android:layout_margin="2dp"
+                android:textColor="#6ad0ab"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="#f5f5f5"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="7dp" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="7dp"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="#87cefa"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="35dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical|right"
+                    android:text="书主"
+                    android:textColor="#404040"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+
+                <Button
+                    android:layout_width="25dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/vector_drawable_message1"/>
+
+                <TextView
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="7dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#f5f5f5"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+
+            <LinearLayout
+                android:layout_width="80dp"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/vector_drawable_head"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="200dp"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="小红"
+                        android:gravity="center"
+                        android:textSize="16sp"
+                        android:textColor="#404040"/>
+
+                    <TextView
+                        android:layout_width="2dp"
+                        android:layout_height="match_parent" />
+
+                    <ImageView
+                        android:layout_width="13dp"
+                        android:layout_height="13dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/vector_drawable_girl1"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:textSize="14dp"
+                    android:textColor="#414141"
+                    android:text="广东工业大学 (大学城校区) 2015年入学，加入漂书3个月。"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="10dp"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="#f5f5f5"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="7dp" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="7dp"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="#87cefa"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:text="留言板"
+                    android:gravity="center_vertical|right"
+                    android:textColor="#414141"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+
+                <Button
+                    android:layout_width="25dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/vector_drawable_messageboard"/>
+
+                <TextView
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="7dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#f5f5f5"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <TextView
+                android:layout_width="10dp"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:text="已收藏"
+                android:gravity="bottom|center_horizontal"
+                android:textSize="12sp"
+                android:textColor="#676767"
+                android:drawableTop="@drawable/vector_drawable_collect2"/>
+
+            <TextView
+                android:layout_width="10dp"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:text="添至购物车"
+                android:gravity="bottom|center_horizontal"
+                android:textSize="12sp"
+                android:textColor="#3e3e3e"
+                android:drawableTop="@drawable/vector_drawable_shoppingcar"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="85dp"
+                android:layout_height="match_parent"
+                android:text="购 入"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:background="#ff6364"
+                android:textColor="#fefefe"/>
+
+            <TextView
+                android:layout_width="85dp"
+                android:layout_height="match_parent"
+                android:text="借 入"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:background="#fb3536"
+                android:textColor="#ffffff"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
