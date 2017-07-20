@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">QGUI</string>
+    <string name="homepage">我的主页</string>
+    <string name="bookinfo">书籍详情</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
