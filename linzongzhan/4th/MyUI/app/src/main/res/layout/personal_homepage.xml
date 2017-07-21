@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -616,11 +618,11 @@
         </LinearLayout>
 
         <android.support.design.widget.FloatingActionButton
-            android:layout_width="45dp"
-            android:layout_height="45dp"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             android:layout_gravity="bottom|center_horizontal"
-            android:src="@drawable/vector_drawable_add2"
-            android:layout_marginBottom="20dp"/>
+            app:srcCompat="@drawable/add5"
+            android:layout_marginBottom="18dp"/>
 
 
     </FrameLayout>

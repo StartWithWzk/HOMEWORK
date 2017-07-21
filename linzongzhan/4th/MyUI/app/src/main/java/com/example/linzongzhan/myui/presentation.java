@@ -31,10 +31,11 @@ public class presentation extends AppCompatActivity {
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.pre_viewpage);
         fragment_page_adapter fragment_page_adapter = new fragment_page_adapter(getSupportFragmentManager(),this);
+       // FindFragment findFragment = new FindFragment();
         viewPager.setAdapter(fragment_page_adapter);
 
-     //   TabLayout tabLayout = (TabLayout) findViewById(R.id.pre_tablayout);
-      //  tabLayout.setupWithViewPager(viewPager);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.pre_tablayout);
+        tabLayout.setupWithViewPager(viewPager);
 
 
     }

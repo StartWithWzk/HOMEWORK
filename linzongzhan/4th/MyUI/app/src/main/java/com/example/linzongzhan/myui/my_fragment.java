@@ -26,6 +26,21 @@ public class my_fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =inflater.inflate(R.layout.pre_recycle_view,container,false);
 
+        stringList.add("a");
+        stringList.add("a");
+        stringList.add("a");
+        stringList.add("a");
+        stringList.add("a");
+        stringList.add("a");
+        stringList.add("a");
+        stringList.add("a");
+        stringList.add("a");
+        stringList.add("a");
+        stringList.add("a");
+        stringList.add("a");
+
+
+
         listView =  view.findViewById(R.id.list_view);
 
         listview_adapter listview_adapter = new listview_adapter(getActivity(),R.layout.listview,stringList);

@@ -36,7 +36,7 @@ public class FindFragment extends Fragment {
     }
 
     private void initControls(View view) {
-      //  tab_FindFragment_title = (TabLayout)view.findViewById(R.id.pre_tablayout);
+        tab_FindFragment_title = (TabLayout)view.findViewById(R.id.pre_tablayout);
         vp_FindFragment_pager = (ViewPager)view.findViewById(R.id.pre_viewpage);
         my_fragment = new my_fragment();
         list_fragment = new ArrayList<>();
