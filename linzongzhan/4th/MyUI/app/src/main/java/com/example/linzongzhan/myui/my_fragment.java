@@ -39,8 +39,6 @@ public class my_fragment extends Fragment {
         stringList.add("a");
         stringList.add("a");
 
-
-
         listView =  view.findViewById(R.id.list_view);
 
         listview_adapter listview_adapter = new listview_adapter(getActivity(),R.layout.listview,stringList);
