@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="white">#ffffffff</color>
+    <color name="bule">#2475fb</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="colcorGrey">#f0f2f5</color>
+    <color name="colcorDeepGrey">#40403b</color>
+    <color name="colcorWhite">#ffffffff</color>
+    <color name="colcorBule">#4698f4</color>
+    <color name="toolBarGrey">#292e32</color>
+    <color name="transparent_background">#925faaef</color>
+    <color name="green">#37cd84</color>
+</resources>
