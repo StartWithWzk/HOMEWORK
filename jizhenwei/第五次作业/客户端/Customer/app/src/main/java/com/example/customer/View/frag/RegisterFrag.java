@@ -6,11 +6,14 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.customer.Control.Controler;
 import com.example.customer.Model.Customer;
@@ -26,18 +29,20 @@ import java.util.regex.PatternSyntaxException;
  */
 
 public class RegisterFrag extends Fragment implements View.OnClickListener {
-    EditText account,password;
+    EditText account, password;
     Button register;
     Controler controler;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View content = inflater.inflate(R.layout.frag_register,container,false);
+        View content = inflater.inflate(R.layout.frag_register, container, false);
         initView(content);
         controler = Controler.getInstance();
         return content;
     }
-    private void initView(View content){
+
+    private void initView(View content) {
         account = (EditText) content.findViewById(R.id.et_account_register);
         password = (EditText) content.findViewById(R.id.et_register_password);
         register = (Button) content.findViewById(R.id.bt_register_sure);
@@ -86,6 +91,15 @@ public class RegisterFrag extends Fragment implements View.OnClickListener {
 
             }
         });
+        password.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    onClick(register);
+                }
+                return false;
+            }
+        });
     }
 
     @Override
@@ -96,7 +110,7 @@ public class RegisterFrag extends Fragment implements View.OnClickListener {
                 String pass = password.getText().toString();
                 controler.register(name, pass, new Controler.OnUserStatusListener() {
                     @Override
-                    public void onResult(int feedback,Customer customer) {
+                    public void onResult(int feedback, Customer customer) {
                         switch (feedback) {
                             case Customer.ALREADY_EXIST:
                                 Tool.toast("该账户以注册");

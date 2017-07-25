@@ -9,6 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
 
 import com.example.customer.Control.Controler;
 import com.example.customer.Model.Dish;
@@ -37,6 +39,11 @@ public class OrderFrag extends Fragment implements SwipeRefreshLayout.OnRefreshL
     public Supplier supplierSelected;
     public Dish dishSelected;
 
+    public interface onClikListener {
+        void onClick();
+    }
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -62,7 +69,10 @@ public class OrderFrag extends Fragment implements SwipeRefreshLayout.OnRefreshL
                             public void run() {
                                 LinearLayoutManager llm = new LinearLayoutManager(getContext());
                                 recyclerView.setLayoutManager(llm);
-                                recyclerView.setAdapter(new SupplierAdapter(getContext(), list,OrderFrag.this));
+                                LayoutAnimationController controller = new LayoutAnimationController(AnimationUtils.loadAnimation(getContext(), R.anim.item_in));
+                                controller.setOrder(LayoutAnimationController.ORDER_NORMAL);
+                                recyclerView.setLayoutAnimation(controller);
+                                recyclerView.setAdapter(new SupplierAdapter(getContext(), list, OrderFrag.this));
                                 refreshLayout.setRefreshing(false);
                             }
                         });
@@ -79,7 +89,10 @@ public class OrderFrag extends Fragment implements SwipeRefreshLayout.OnRefreshL
                             public void run() {
                                 LinearLayoutManager llm = new LinearLayoutManager(getContext());
                                 recyclerView.setLayoutManager(llm);
-                                recyclerView.setAdapter(new DishAdapter(getContext(),list,OrderFrag.this));
+                                LayoutAnimationController controller = new LayoutAnimationController(AnimationUtils.loadAnimation(getContext(), R.anim.item_in));
+                                controller.setOrder(LayoutAnimationController.ORDER_NORMAL);
+                                recyclerView.setLayoutAnimation(controller);
+                                recyclerView.setAdapter(new DishAdapter(getContext(), list, OrderFrag.this));
                                 refreshLayout.setRefreshing(false);
                             }
                         });
@@ -90,6 +103,5 @@ public class OrderFrag extends Fragment implements SwipeRefreshLayout.OnRefreshL
 
 
     }
-
 
 }

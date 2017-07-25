@@ -7,10 +7,17 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.supplier.Control.Controler;
 import com.example.supplier.Model.Customer;
@@ -31,6 +38,7 @@ public class LoginFrag extends Fragment implements View.OnClickListener {
     TextInputLayout accountInputLayout, passwordInputLayout;
     Button swichToregister, login;
     Controler controler;
+    ImageView earth;
 
     public interface OnSwitchRegisterListener {
         void onSwitchRegister();
@@ -57,6 +65,10 @@ public class LoginFrag extends Fragment implements View.OnClickListener {
         passwordInputLayout = (TextInputLayout) content.findViewById(R.id.login_password_input_layout);
         swichToregister = (Button) content.findViewById(R.id.bt_switch_register);
         login = (Button) content.findViewById(R.id.bt_login_sure);
+        earth = (ImageView) content.findViewById(R.id.im_earth);
+        Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.roate);
+        animation.setInterpolator(new LinearInterpolator());
+        earth.startAnimation(animation);
         login.setOnClickListener(this);
         swichToregister.setOnClickListener(this);
         accountInputLayout.getEditText().addTextChangedListener(new TextWatcher() {
@@ -101,6 +113,15 @@ public class LoginFrag extends Fragment implements View.OnClickListener {
             @Override
             public void afterTextChanged(Editable s) {
 
+            }
+        });
+        passwordInputLayout.getEditText().setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    onClick(login);
+                }
+                return false;
             }
         });
     }

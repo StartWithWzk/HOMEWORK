@@ -1,5 +1,6 @@
 package com.example.customer.View.activity;
 
+import android.app.Activity;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.customer.Control.Controler;
 import com.example.customer.Model.Customer;
+import com.example.customer.MyApplication;
 import com.example.customer.R;
 import com.example.customer.Util.Tool;
 import com.example.customer.View.adpter.TabPageAdpater;
@@ -82,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         switch (tabLayout.getSelectedTabPosition()) {
+            //在viewpager左边
             case 0:
                 switch (orderFrag.mode) {
                     case OrderFrag.MODE_SUPPLIER:
@@ -89,7 +92,10 @@ public class MainActivity extends AppCompatActivity {
                             Tool.toast("再按一次退出");
                             start = System.currentTimeMillis();
                         } else {
-                            super.onBackPressed();
+                            controler.logoutInMe();
+                            for (Activity activity : MyApplication.activityStack) {
+                                activity.finish();
+                            }
                         }
                         return;
                     case OrderFrag.MODE_DISH:
@@ -101,7 +107,16 @@ public class MainActivity extends AppCompatActivity {
                         return;
                 }
             case 1:
-                return;
+                if (System.currentTimeMillis() - start > 2000) {
+                    Tool.toast("再按一次退出");
+                    start = System.currentTimeMillis();
+                } else {
+                    controler.logoutInMe();
+                    for (Activity activity : MyApplication.activityStack) {
+                        activity.finish();
+                    }
+                }
+                break;
             default:
                 super.onBackPressed();
         }

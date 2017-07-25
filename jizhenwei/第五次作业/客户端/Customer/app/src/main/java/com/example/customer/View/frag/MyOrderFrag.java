@@ -9,6 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
 
 import com.example.customer.Control.Controler;
 import com.example.customer.Model.Order;
@@ -19,6 +21,7 @@ import com.example.customer.Util.Tool;
 import com.example.customer.View.adpter.OrderAdapter;
 import com.example.customer.View.adpter.SupplierAdapter;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -28,10 +31,11 @@ import java.util.List;
 public class MyOrderFrag extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
     RecyclerView recyclerView;
     SwipeRefreshLayout refreshLayout;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View content = inflater.inflate(R.layout.frag_refresh_recycler,container,false);
+        View content = inflater.inflate(R.layout.frag_refresh_recycler, container, false);
         recyclerView = (RecyclerView) content.findViewById(R.id.recycler);
         refreshLayout = (SwipeRefreshLayout) content.findViewById(R.id.refresh_layout);
         refreshLayout.setOnRefreshListener(this);
@@ -64,13 +68,16 @@ public class MyOrderFrag extends Fragment implements SwipeRefreshLayout.OnRefres
         Controler.getInstance().getOrderList(new Controler.OnGetOrderListListener() {
             @Override
             public void onGet(final List<Order> list) {
-                Tool.log("orderList",list);
+                Collections.sort(list);
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         LinearLayoutManager llm = new LinearLayoutManager(getContext());
                         recyclerView.setLayoutManager(llm);
-                        recyclerView.setAdapter(new OrderAdapter(getContext(),list,MyOrderFrag.this));
+                        LayoutAnimationController controller = new LayoutAnimationController(AnimationUtils.loadAnimation(getContext(), R.anim.item_in));
+                        controller.setOrder(LayoutAnimationController.ORDER_NORMAL);
+                        recyclerView.setLayoutAnimation(controller);
+                        recyclerView.setAdapter(new OrderAdapter(getContext(), list, MyOrderFrag.this));
                         refreshLayout.setRefreshing(false);
                     }
                 });

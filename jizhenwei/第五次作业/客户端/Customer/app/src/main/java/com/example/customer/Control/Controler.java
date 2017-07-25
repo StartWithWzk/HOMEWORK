@@ -86,6 +86,9 @@ public class Controler {
         new Thread(new Runnable() {
             @Override
             public void run() {
+                if (!mOperator.connect()) {
+                    return;
+                }
                 listener.onResult(mOperator.logout(), null);
             }
         }).start();
@@ -159,6 +162,7 @@ public class Controler {
         }).start();
 
     }
+
     public void doneOrder(final Order order, final OnOrderListener listener) {
         new Thread(new Runnable() {
             @Override

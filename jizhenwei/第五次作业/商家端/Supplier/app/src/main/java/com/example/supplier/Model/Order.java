@@ -1,12 +1,18 @@
 package com.example.supplier.Model;
 
 
+import android.support.annotation.NonNull;
+
 import com.google.gson.Gson;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by 小吉哥哥 on 2017/7/21.
  */
-public class Order {
+public class Order implements Comparable<Order> {
     public static final int WAIT = 0;
     public static final int DOING = 1;
     public static final int DONE = 2;
@@ -133,5 +139,19 @@ public class Order {
                 ", date='" + date + '\'' +
                 ", objectId=" + objectId +
                 '}';
+    }
+
+    @Override
+    public int compareTo(@NonNull Order o) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        try {
+            Date mDate = sdf.parse(date);
+            Date oDate = sdf.parse(o.getDate());
+            return oDate.compareTo(mDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return 0;
+        }
+
     }
 }

@@ -32,7 +32,7 @@ public class DataOperator {
             return mOperator;
         } else {
             mOperator = new DataOperator();
-            mOperator.connect("192.168.43.47", 8076);
+            mOperator.connect("192.168.43.47", 8060);
             return mOperator;
         }
 
@@ -44,7 +44,6 @@ public class DataOperator {
             public void run() {
                 if (!Tool.isMobileOk() && !Tool.isWifiOk()) {
                     Tool.toast("无法连接至服务器");
-
                 }
                 try {
                     mSocket = new Socket(ip, port);

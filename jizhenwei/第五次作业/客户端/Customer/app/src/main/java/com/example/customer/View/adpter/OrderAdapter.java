@@ -120,7 +120,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        TextView supplier, customer, dish, date, statusWait, statusDoing, statusDone, statusCancel,ensure,rate;
+        TextView supplier, customer, dish, date, statusWait, statusDoing, statusDone, statusCancel, ensure, rate;
         CardView card;
 
         public ViewHolder(View itemView) {
@@ -212,6 +212,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
         dialog.setView(view);
         dialog.show();
     }
+
     private void showRateDialog(final Order order) {
         AlertDialog.Builder dialog = new AlertDialog.Builder(context);
         View view = LayoutInflater.from(MyApplication.context).inflate(R.layout.rate, null, false);
@@ -221,7 +222,8 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
         dialog.setPositiveButton("确认", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                order.setStar(ratingBar.getNumStars());
+
+                order.setStar((int) ratingBar.getRating());
                 order.setIsRated(1);
                 Controler.getInstance().gradeOrder(order, new Controler.OnOrderListener() {
                     @Override

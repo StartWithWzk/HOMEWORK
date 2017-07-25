@@ -25,7 +25,11 @@
             android:drawablePadding="8dp"
             android:drawableStart="@drawable/ic_acount"
             android:hint="账户"
-            android:maxLength="12"/>
+            android:maxLength="12"
+            android:singleLine="true"
+            android:imeOptions="actionNext"
+            android:nextFocusForward="@+id/login_et_password"
+            />
 
     </android.support.design.widget.TextInputLayout>
 
@@ -41,12 +45,15 @@
         android:elevation="2dp">
 
         <EditText
+            android:id="@+id/login_et_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="密码"
             android:drawableStart="@drawable/ic_password"
             android:drawablePadding="8dp"
-            android:maxLength="12"/>
+            android:maxLength="12"
+            android:singleLine="true"
+            android:imeOptions="actionDone"/>
     </android.support.design.widget.TextInputLayout>
 
     <Button

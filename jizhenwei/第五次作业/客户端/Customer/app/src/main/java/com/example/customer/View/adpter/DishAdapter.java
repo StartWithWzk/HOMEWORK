@@ -80,10 +80,11 @@ public class DishAdapter extends RecyclerView.Adapter<DishAdapter.ViewHolder> {
             ratingBar = (RatingBar) itemView.findViewById(R.id.dish_item_ratingbar);
         }
     }
-    private void showDialog(final Dish dish){
+
+    private void showDialog(final Dish dish) {
         AlertDialog.Builder dialog = new AlertDialog.Builder(context);
         dialog.setTitle("确认订单");
-        dialog.setMessage("Dish: "+dish.getName()+"\n"+"Price: "+dish.getSellingPrice());
+        dialog.setMessage("Dish: " + dish.getName() + "\n" + "Price: " + dish.getSellingPrice());
         dialog.setCancelable(false);
         dialog.setPositiveButton("下单", new DialogInterface.OnClickListener() {
             @Override
@@ -102,7 +103,7 @@ public class DishAdapter extends RecyclerView.Adapter<DishAdapter.ViewHolder> {
                 dialog.dismiss();
             }
         });
-        View view = LayoutInflater.from(context).inflate(R.layout.dish_item,null,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.dish_item, null, false);
         float grade;
         if (dish.getGradeCount() == 0) {
             grade = 0;
@@ -110,7 +111,7 @@ public class DishAdapter extends RecyclerView.Adapter<DishAdapter.ViewHolder> {
             grade = (float) dish.getGradeSum() / (float) dish.getGradeCount();
         }
         ((TextView) view.findViewById(R.id.dish_item_name)).setText(dish.getName());
-        ((TextView) view.findViewById(R.id.dish_item_sellingprice)).setText(dish.getSellingPrice()+"");
+        ((TextView) view.findViewById(R.id.dish_item_sellingprice)).setText(dish.getSellingPrice() + "");
         ((RatingBar) view.findViewById(R.id.dish_item_ratingbar)).setRating(grade);
         dialog.setView(view);
         dialog.show();

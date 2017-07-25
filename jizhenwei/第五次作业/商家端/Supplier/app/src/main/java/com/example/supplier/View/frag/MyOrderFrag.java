@@ -11,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
 import android.widget.AdapterView;
 
 import com.example.supplier.Control.Controler;
@@ -19,6 +21,7 @@ import com.example.supplier.R;
 import com.example.supplier.uitl.Tool;
 import com.example.supplier.View.adapter.OrderAdapter;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -64,12 +67,15 @@ public class MyOrderFrag extends Fragment implements SwipeRefreshLayout.OnRefres
         Controler.getInstance().getOrderList(new Controler.OnGetOrderListListener() {
             @Override
             public void onGet(final List<Order> list) {
-                Tool.log("orderList",list);
+                Collections.sort(list);
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         LinearLayoutManager llm = new LinearLayoutManager(getContext());
                         recyclerView.setLayoutManager(llm);
+                        LayoutAnimationController controller = new LayoutAnimationController(AnimationUtils.loadAnimation(getContext(),R.anim.item_in));
+                        controller.setOrder(LayoutAnimationController.ORDER_NORMAL);
+                        recyclerView.setLayoutAnimation(controller);
                         recyclerView.setAdapter(new OrderAdapter(getContext(),list,MyOrderFrag.this));
                         refreshLayout.setRefreshing(false);
                     }

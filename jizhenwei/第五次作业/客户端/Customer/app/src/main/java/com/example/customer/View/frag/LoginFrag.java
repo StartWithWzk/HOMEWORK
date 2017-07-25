@@ -7,10 +7,17 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.customer.Control.Controler;
 import com.example.customer.Model.Customer;
@@ -29,7 +36,9 @@ import java.util.regex.PatternSyntaxException;
 public class LoginFrag extends Fragment implements View.OnClickListener {
     TextInputLayout accountInputLayout, passwordInputLayout;
     Button swichToregister, login;
+    ImageView earth;
     Controler controler;
+
 
     public interface OnSwitchRegisterListener {
         void onSwitchRegister();
@@ -56,6 +65,11 @@ public class LoginFrag extends Fragment implements View.OnClickListener {
         passwordInputLayout = (TextInputLayout) content.findViewById(R.id.login_password_input_layout);
         swichToregister = (Button) content.findViewById(R.id.bt_switch_register);
         login = (Button) content.findViewById(R.id.bt_login_sure);
+        earth = (ImageView) content.findViewById(R.id.im_earth);
+        Animation animation = AnimationUtils.loadAnimation(getContext(),R.anim.roate);
+        animation.setInterpolator(new LinearInterpolator());
+        earth.startAnimation(animation);
+
         login.setOnClickListener(this);
         swichToregister.setOnClickListener(this);
         accountInputLayout.getEditText().addTextChangedListener(new TextWatcher() {
@@ -102,17 +116,28 @@ public class LoginFrag extends Fragment implements View.OnClickListener {
 
             }
         });
+        passwordInputLayout.getEditText().setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    onClick(login);
+                }
+                return false;
+            }
+        });
+
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.bt_login_sure:
+
                 String name = accountInputLayout.getEditText().getText().toString();
                 String password = passwordInputLayout.getEditText().getText().toString();
                 controler.login(name, password, new Controler.OnUserStatusListener() {
                     @Override
-                    public void onResult(int feedback,Customer customer) {
+                    public void onResult(int feedback, Customer customer) {
                         switch (feedback) {
                             case Customer.ALREADY_ONLINE:
                                 Tool.toast("该账户以上线");
@@ -145,10 +170,11 @@ public class LoginFrag extends Fragment implements View.OnClickListener {
                 break;
         }
     }
-    public static String stringFilter(String str)throws PatternSyntaxException {
-        String   regEx  =  "[^a-zA-Z0-9\u4E00-\u9FA5]";
-        Pattern   p   =   Pattern.compile(regEx);
-        Matcher m   =   p.matcher(str);
-        return   m.replaceAll("").trim();
+
+    public static String stringFilter(String str) throws PatternSyntaxException {
+        String regEx = "[^a-zA-Z0-9\u4E00-\u9FA5]";
+        Pattern p = Pattern.compile(regEx);
+        Matcher m = p.matcher(str);
+        return m.replaceAll("").trim();
     }
 }

@@ -13,6 +13,8 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -61,6 +63,9 @@ public class DishFrag extends Fragment implements SwipeRefreshLayout.OnRefreshLi
                         mList = list;
                         LinearLayoutManager llm = new LinearLayoutManager(getContext());
                         recyclerView.setLayoutManager(llm);
+                        LayoutAnimationController controller = new LayoutAnimationController(AnimationUtils.loadAnimation(getContext(),R.anim.item_in));
+                        controller.setOrder(LayoutAnimationController.ORDER_NORMAL);
+                        recyclerView.setLayoutAnimation(controller);
                         recyclerView.setAdapter(new DishAdapter(getContext(), list, DishFrag.this));
                         refreshLayout.setRefreshing(false);
                     }
